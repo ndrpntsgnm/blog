@@ -57,5 +57,4 @@ Blog::Application.routes.draw do
   #     resources :products
   #   end
   get '/posts/:id(.:format)' => 'posts#show'
-  get '/posts(.:format)' => 'posts#index'
 end
