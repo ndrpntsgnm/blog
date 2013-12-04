@@ -14,11 +14,4 @@ describe "Default routing" do
 			:action => "index"
 		)
 	end
-
-	it "routes posts/new to posts#new" do
-		expect(:get => "/posts/new").to route_to(
-			:controller => "posts",
-			:action => "new"
-		)
-	end
 end
