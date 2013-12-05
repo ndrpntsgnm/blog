@@ -13,4 +13,11 @@ describe PostsController do
 			expect(response).to render_template("new")
 		end
 	end
+
+	describe "Create" do
+		it "has a create action" do
+			post :create
+			expect(response).to be_success
+		end
+	end
 end
