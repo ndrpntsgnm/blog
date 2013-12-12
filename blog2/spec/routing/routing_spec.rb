@@ -15,18 +15,25 @@ describe "Default routing" do
 		)
 	end
 
-	it "routes posts/new to posts#new" do
+	it "routes /posts/new to posts#new" do
 		expect(:get => "/posts/new").to route_to(
 			:controller => "posts",
 			:action => "new"
 		)
 	end
 	
-	it "routes posts/:id(.:format) to posts#show" do
+	it "routes /posts/:id(.:format) to posts#show" do
 	  expect(:get => "/posts/1").to route_to(
 	     :controller => "posts",
 	     :action => "show",
 	     :id => "1"
+	  )
+	end
+	
+	it "routes /posts to posts#index" do
+	  expect(:get => "/posts").to route_to(
+	     :controller => "posts",
+	     :action => "index"
 	  )
 	end
 end
