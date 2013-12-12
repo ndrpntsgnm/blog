@@ -21,4 +21,12 @@ describe "Default routing" do
 			:action => "new"
 		)
 	end
+	
+	it "routes posts/:id(.:format) to posts#show" do
+	  expect(:get => "/posts/1").to route_to(
+	     :controller => "posts",
+	     :action => "show",
+	     :id => "1"
+	  )
+	end
 end

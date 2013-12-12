@@ -16,8 +16,12 @@ describe PostsController do
 
 	describe "Create" do
 		it "has a create action" do
-			post :create
-			expect(response).to be_success
+			post :create, post: {:title => "01_first_post", :text => "hello world"}
+		end
+		
+		it "redirects to show the post just created" do
+		  post :create, post: {:title => "01_first_post", :text => "hello world"}
+		  assert_redirected_to "/posts/1"
 		end
 	end
 end

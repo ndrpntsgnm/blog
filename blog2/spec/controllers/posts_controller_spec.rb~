@@ -5,12 +5,19 @@ describe PostsController do
 		it "responds successfully with an HTTP 200 status code" do
 			get :new
 			expect(response).to be_success
-			expect(response.status).to eq(200)
+			expect(response.status).to eq(404)
 		end
 
 		it "renders the new template" do
 			get :new
 			expect(response).to render_template("new")
+		end
+	end
+
+	describe "Create" do
+		it "has a create action" do
+			post :create
+			expect(response).to be_success
 		end
 	end
 end
