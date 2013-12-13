@@ -10,4 +10,9 @@ describe "welcome/index.html.erb" do
 	  render
 	  expect(rendered).to include("Hello World")
   end
+  
+  it "has a link to the blogs" do
+    render
+    rendered.should have_link("My Blog", :href => posts_path)
+  end
 end

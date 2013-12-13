@@ -16,6 +16,11 @@ describe 'posts/index' do
       render
       expect(rendered).to have_css("table")
     end
+    
+    it 'contains a link to create a new post' do
+      render
+      rendered.should have_link("New post", :href => new_post_path)
+    end
   end
   
   context 'with 2 posts' do

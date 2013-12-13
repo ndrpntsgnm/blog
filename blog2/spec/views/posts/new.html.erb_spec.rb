@@ -20,4 +20,9 @@ describe "posts/new" do
 		render
 		assert_select "form[action*=?]", "/posts"
 	end
+	
+	it "contains a link to go back to /posts" do
+	  render
+	  rendered.should have_link("Back", posts_path)
+	end
 end
