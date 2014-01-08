@@ -36,4 +36,12 @@ describe "Default routing" do
 	     :action => "index"
 	  )
 	end
+
+	it "routes /posts/edit/:id to posts#edit" do
+	  expect(:get => "/posts/edit/1").to route_to(
+	     :controller => "posts",
+	     :action => "edit",
+	     :id => "1"
+	  )
+	end
 end

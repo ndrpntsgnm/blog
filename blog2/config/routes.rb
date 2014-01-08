@@ -6,7 +6,9 @@ Blog2::Application.routes.draw do
   get "welcome/index"
   
   get 'posts/:id(.:format)' => 'posts#show'
-  
+ 
+  get 'posts/edit/:id(.:format)' => 'posts#edit'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

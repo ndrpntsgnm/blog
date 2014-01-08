@@ -40,6 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rest-client'
   gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 # Use ActiveModel has_secure_password

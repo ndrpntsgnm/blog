@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :dev, :test do
+group :development, :test do
   gem 'cucumber'
   gem 'rspec-expectations'
   gem 'poltergeist', ">= 1.4.0"

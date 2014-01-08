@@ -1,14 +1,21 @@
 require 'spec_helper'
+require 'capybara/node/actions'
 
 describe "posts/new" do
+  before(:each) do
+    @post = Post.new
+  end
+    
 	it "contains a place to enter title" do
 		render
 		expect(rendered).to include("Title")
+		response.body.should have_field("Title")
 	end
 
 	it "contains a place to enter text" do
 		render
 		expect(rendered).to include("Text")
+		response.body.should have_field("Text")
 	end
 
 	it "contains a button to submit the new post" do
@@ -25,4 +32,5 @@ describe "posts/new" do
 	  render
 	  rendered.should have_link("Back", posts_path)
 	end
+	
 end
