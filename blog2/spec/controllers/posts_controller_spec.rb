@@ -94,13 +94,17 @@ describe PostsController do
 	  end
 	  
 	  it "exists" do
-	    post :update, {:id => @post1.id, post: {:id => @post1.id, :title => "edited title", :text => "edited text"}}
-	    expect(response).to be_success
+	    post :update, {:id => @post1.id, post: {:title => "edited title", :text => "edited text"}}
 	  end
 	  
 	  it "redirects to the updated post" do
-	    post :update, {:id => @post1.id, post: {:id => @post1.id, :title => "edited title", :text => "edited text"}}
-	    assert_redirected_to "/posts/"+@post1.id.to_s
+	    post :update, {:id => @post1.id, post: {:title => "edited title", :text => "edited text"}}
+	    assert_redirected_to "/posts/%s" % @post1.id.to_s
+	  end
+	  
+	  it "renders edit template with bad data" do
+	    post :update, {:id => @post1.id, post: {:title => "a"}}
+	    expect(response).to render_template("edit")
 	  end
 	end
 end

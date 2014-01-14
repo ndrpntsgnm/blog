@@ -37,6 +37,12 @@ describe 'posts/index' do
       expect(rendered).to include("01")
       expect(rendered).to include("02")
     end
+    
+    it "has a link to view the post" do
+      render
+      
+      rendered.should have_link("Show", :href => post_path({:id => "1"}))
+    end
   end
   
   
